@@ -8,7 +8,71 @@
 </head>
 <body>
 
-<%= yield %>
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <%= link_to "wikibrew", root_path %>
+                </li>
+                <li>
+                    <% if current_user %>
+                    <%= link_to "my wikis", current_user %>
+                    <% end %>
+                </li>
+                <li>
+                    <%= link_to "my account", edit_user_registration_path %>
+                </li>
+                <li>
+                    <%= link_to "about", about_path %>
+                </li>
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <% if current_user %>
+                        <a href="#menu-toggle" class="btn btn-default btn-arrow-left" id="menu-toggle">menu</a>
+                        <% end %>
+                        <% if flash[:notice] %>
+                         <div class="alert alert-success">
+                           <button type="button" class="close" data-dismiss="alert">&times;</button>
+                           <%= flash[:notice] %>
+                         </div>
+                       <% elsif flash[:error] %>
+                         <div class="alert alert-danger">
+                           <button type="button" class="close" data-dismiss="alert">&times;</button>
+                           <%= flash[:error] %>
+                         </div>
+                       <% elsif flash[:alert] %>
+                         <div class="alert alert-warning">
+                           <button type="button" class="close" data-dismiss="alert">&times;</button>
+                           <%= flash[:alert] %>
+                         </div>
+                       <% end %>
+                      <%= yield %>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- Menu Toggle Script -->
+    <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+        $("#menu-toggle").toggleClass("btn-arrow-left btn-arrow-right");
+    });
+    </script>
 
 </body>
 </html>

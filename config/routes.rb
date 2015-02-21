@@ -1,4 +1,11 @@
 Wikibrew::Application.routes.draw do
+  resources :wikis
+  resources :charges, only: [:new, :create]
+  devise_for :users
+  resources :users, only: [:show, :update]
+  get 'about' => 'welcome#about'
+
+  root to: 'welcome#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

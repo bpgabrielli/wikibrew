@@ -1,0 +1,17 @@
+<div class="row">
+  <div class="col-md-8">
+    <h2 class="media-heading">
+      <%= markdown_to_html wiki.title %>
+    </h2>
+    <% if wiki.private %>
+      <small>
+       <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> private wiki 
+    <% else %>
+      <small>
+    <% end %>
+     created by <%= wiki.user.name %>
+    </small>
+    <br><br>
+    <p><%= markdown_to_html wiki.body %></p>  
+  </div>
+</div>

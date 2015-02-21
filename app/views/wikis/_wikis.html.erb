@@ -1,0 +1,21 @@
+<div class="row wiki-list">
+  <div class="col-md-8">
+    <% wikis.each do |wiki| %>
+      <div class="media">
+        <div class="media-body">
+          <h4 class="media-heading">
+            <%= link_to (markdown_to_html wiki.title), wiki %>
+          </h4>
+          <% if wiki.private %>
+            <small>
+             <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> private  
+            <small><br>
+          <% end %>
+          <small>
+            <%= markdown_to_html wiki.body %>
+          </small>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -43,3 +43,17 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+gem 'bootstrap-sass'
+
+gem 'devise'
+
+gem 'pundit'
+
+gem 'faker'
+
+gem 'stripe'
+
+gem 'figaro', '1.0'
+
+gem 'redcarpet'

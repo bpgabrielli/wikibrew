@@ -1,0 +1,9 @@
+<h2><%= current_user.name %>'s wikis</h2>
+
+<div>
+  <% if policy(Wiki.new).create? %>
+    <%= link_to "Create Wiki", new_wiki_path, class: 'btn btn-success' %>
+  <% end %>
+</div>
+<br><br>
+<%= render partial: 'wikis/wikis', locals: { wikis: @wikis } %>

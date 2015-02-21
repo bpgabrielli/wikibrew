@@ -1,0 +1,19 @@
+<div class="jumbotron">
+<h1>wikibrew</h1><%= image_tag "wikibrew-logo.png" %>
+<p>A Free Wiki Collaboration Tool</p>
+   <% if current_user %>
+      <div>
+        <% if policy(Wiki.new).create? %>
+          <%= link_to "Create Wiki", new_wiki_path, class: 'btn btn-success' %>
+        <% end %>
+      </div>
+    </div>
+    <h2>all wikis</h2>
+    <div class="header-form">
+      <%= render partial: 'wikis/wikis', locals: { wikis: @wikis } %>
+    </div>
+   <% else %>
+    <%= link_to "Sign In", new_user_session_path, class: 'btn btn-primary' %> or 
+    <%= link_to "Sign Up", new_user_registration_path, class: 'btn btn-primary' %>
+    </div>
+   <% end %>

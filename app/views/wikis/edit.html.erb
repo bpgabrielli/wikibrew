@@ -15,3 +15,16 @@
     <% end %>
   </div>
 </div>
+<br>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Grant Access</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render partial: "users/users", locals: {users: @users, wiki: @wiki} %>
+  </tbody>
+</table>

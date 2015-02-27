@@ -1,0 +1,11 @@
+<% users.each do |user| %>
+<tr>
+  <td><%= user.name %></td>
+  <td><%= user.email %></td>
+  <% if user.collaborating_wikis.include?(wiki) %>
+    <td><%= button_to "Remove", collaboration_path(collaboration_id: user.collaborations.find_by(wiki_id: wiki.id)), method: :delete, class: 'btn btn-danger' %></td>
+  <% else %>
+    <td><%= button_to "Add", collaborations_path(user_id: user.id, wiki_id: wiki.id), method: :post, class: 'btn btn-info' %></td>
+  <% end %>
+</tr>
+<% end %>

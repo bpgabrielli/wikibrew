@@ -8,12 +8,14 @@
           </h4>
           <% if wiki.private %>
             <small>
-             <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> private  
-            <small><br>
+             <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> private<br>
+             <%= markdown_to_html wiki.body %>
+            </small>
+          <% else %>
+            <small>
+              <%= markdown_to_html wiki.body %>
+            </small>
           <% end %>
-          <small>
-            <%= markdown_to_html wiki.body %>
-          </small>
         </div>
       </div>
     <% end %>
